@@ -1,0 +1,226 @@
+data: uncleaned
+model: Pipeline(steps=[('standardscaler', StandardScaler(with_mean=False)),
+                ('svc', SVC(gamma='auto'))])
+result:
+              precision    recall  f1-score   support
+
+       anger       0.42      0.15      0.23       388
+        fear       0.27      0.85      0.41       389
+         joy       0.52      0.11      0.19       290
+     sadness       0.37      0.06      0.10       397
+
+    accuracy                           0.30      1464
+   macro avg       0.40      0.29      0.23      1464
+weighted avg       0.39      0.30      0.23      1464
+
+
+
+data: cleaned
+model: Pipeline(steps=[('standardscaler', StandardScaler(with_mean=False)),
+                ('svc', SVC(gamma='auto'))])
+result:
+              precision    recall  f1-score   support
+
+       anger       0.41      0.30      0.34       388
+        fear       0.30      0.71      0.42       389
+         joy       0.57      0.24      0.34       290
+     sadness       0.41      0.13      0.19       397
+
+    accuracy                           0.35      1464
+   macro avg       0.42      0.35      0.32      1464
+weighted avg       0.41      0.35      0.32      1464
+
+
+data: uncleaned
+model: fastText
+              precision    recall  f1-score   support
+
+       anger       0.38      0.39      0.39       388
+        fear       0.37      0.49      0.42       389
+         joy       0.60      0.44      0.51       290
+     sadness       0.39      0.32      0.35       397
+
+    accuracy                           0.41      1464
+   macro avg       0.43      0.41      0.42      1464
+weighted avg       0.42      0.41      0.41      1464
+
+
+data: cleaned
+model: fastText
+              precision    recall  f1-score   support
+
+       anger       0.45      0.42      0.43       388
+        fear       0.39      0.56      0.46       389
+         joy       0.66      0.51      0.58       290
+     sadness       0.45      0.36      0.40       397
+
+    accuracy                           0.46      1464
+   macro avg       0.49      0.46      0.47      1464
+weighted avg       0.48      0.46      0.46      1464
+
+
+
+=================================================================
+LSTM(
+  (embedding): Embedding(13201, 300)
+  (lstm): LSTM(300, 128, num_layers=2, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.2, inplace=False)
+  (fc): Linear(in_features=256, out_features=4, bias=True)
+)
+Epoch 5
+train_loss : 1.2169264786773257 val_loss : 1.3485228538513183
+train_accuracy : 45.268938327231766 val_accuracy : 33.08270676691729
+=================================================================
+LSTM(
+  (embedding): Embedding(13201, 300)
+  (lstm): LSTM(300, 32, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.5, inplace=False)
+  (fc): Linear(in_features=64, out_features=4, bias=True)
+)
+learning rate 0.001
+Epoch 30
+train_loss : 1.0738965562648244 val_loss : 1.3320724328358968
+train_accuracy : 67.45987045902562 val_accuracy : 37.59398496240601
+=================================================================
+LSTM(
+  (embedding): Embedding(13201, 300)
+  (lstm): LSTM(300, 32, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.5, inplace=False)
+  (fc): Linear(in_features=64, out_features=4, bias=True)
+)
+learning rate 0.002
+Epoch 60
+train_loss : 0.9035838262902366 val_loss : 1.3035201946894328
+train_accuracy : 85.2013517319065 val_accuracy : 41.55844155844156
+=================================================================
+LSTM(
+  (embedding): Embedding(12910, 300)
+  (lstm): LSTM(300, 32, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.5, inplace=False)
+  (fc): Linear(in_features=64, out_features=4, bias=True)
+)
+new embbeding
+learning rate 0.002
+Epoch 27
+train_loss : 0.9486163879434267 val_loss : 1.2794045686721802
+train_accuracy : 79.76626302450013 val_accuracy : 44.2241968557758
+Validation loss decreased (1.284776 --> 1.279405).  Saving model ...
+=================================================================
+LSTM(
+  (embedding): Embedding(12910, 300)
+  (lstm): LSTM(300, 32, num_layers=2, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.2, inplace=False)
+  (fc): Linear(in_features=64, out_features=4, bias=True)
+)
+Epoch 26
+train_loss : 0.8309030988150172 val_loss : 1.2442012151082358
+train_accuracy : 90.4393128696142 val_accuracy : 49.35064935064935
+Validation loss decreased (1.244490 --> 1.244201).  Saving model ...
+=================================================================
+LSTM(
+  (embedding): Embedding(12910, 300)
+  (lstm): LSTM(300, 32, num_layers=2, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.2, inplace=False)
+  (fc): Linear(in_features=64, out_features=4, bias=True)
+)
+embedding not locked
+Epoch 29
+train_loss : 0.841054471830527 val_loss : 1.2380133946736653
+train_accuracy : 89.43959448042806 val_accuracy : 50.03417634996582
+Validation loss decreased (1.244068 --> 1.238013).  Saving model ...
+=================================================================
+LSTM(
+  (embedding): Embedding(12910, 300)
+  (lstm): LSTM(300, 64, num_layers=3, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.2, inplace=False)
+  (fc): Linear(in_features=128, out_features=4, bias=True)
+)
+embedding not locked
+Epoch 23
+train_loss : 0.8157454993989732 val_loss : 1.2363362312316895
+train_accuracy : 92.07265558997464 val_accuracy : 50.17088174982912
+Validation loss decreased (1.238649 --> 1.236336).  Saving model ...
+==================================================
+LSTM(
+  (embedding): Embedding(12910, 300)
+  (lstm): LSTM(300, 32, num_layers=3, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.1, inplace=False)
+  (fc): Linear(in_features=64, out_features=4, bias=True)
+)
+Epoch 30
+train_loss : 0.8134601530101564 val_loss : 1.2357825835545857
+train_accuracy : 92.39650802590819 val_accuracy : 50.58099794941901
+Validation loss decreased (1.236855 --> 1.235783).  Saving model ...
+
+
+
+==================================================
+LSTM(
+  (embedding): Embedding(12810, 300)
+  (lstm): LSTM(300, 32, num_layers=3, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.1, inplace=False)
+  (fc): Linear(in_features=64, out_features=4, bias=True)
+)
+AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.002
+    weight_decay: 0.0005
+)
+0.48768809849521205
+0.4897400820793434  -> fixed embedding
+==================================================
+
+==================================================
+LSTM(
+  (embedding): Embedding(12810, 300)
+  (lstm): LSTM(300, 32, num_layers=3, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.0, inplace=False)
+  (fc): Linear(in_features=64, out_features=4, bias=True)
+)
+AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.002
+    weight_decay: 0.0005
+)
+0.49316005471956226 => fixed embdding
+==================================================
+==================================================
+LSTM(
+  (embedding): Embedding(12810, 300)
+  (lstm): LSTM(300, 64, num_layers=3, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.0, inplace=False)
+  (fc): Linear(in_features=128, out_features=4, bias=True)
+)
+AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.002
+    weight_decay: 0.0005
+)
+0.49316005471956226 => fixed embedding
+==================================================
+==================================================
+LSTM(
+  (embedding): Embedding(12810, 300)
+  (lstm): LSTM(300, 64, num_layers=3, batch_first=True, bidirectional=True)
+  (drop): Dropout(p=0.1, inplace=False)
+  (fc): Linear(in_features=128, out_features=4, bias=True)
+)
+AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.002
+    weight_decay: 0.0005
+)
+0.4911080711354309 => fixed embedding
+==================================================
